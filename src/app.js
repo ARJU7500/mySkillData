@@ -2,8 +2,6 @@
 const express = require("express");
 require("./db/conect");
 const skillRouter = require("./routers/mySkill");
-const myMongo = require("MONGO_URL");
-myMongo.config();
 const dotenv = require("dotenv");//when our port is bg so this port automatic on 
 dotenv.config();
 const app = express();
