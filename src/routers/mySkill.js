@@ -7,18 +7,18 @@ router.get("/", (req, res)=>{
 });
 
 // async ans await method create new skill
-router.post("/skill", async(req, res)=>{
-    try{
-        const user = new Skill(req.body);
-    const createUser =await user.save();
-    res.status(201).send(createUser);
-    }catch(err){
-        res.status(400).send(err);
-    }
-});
+// router.post("/skill", async(req, res)=>{
+//     try{
+//         const user = new Skill(req.body);
+//     const createUser =await user.save();
+//     res.status(201).send(createUser);
+//     }catch(err){
+//         res.status(400).send(err);
+//     }
+// });
 
 // read the data
-router.get("/skill", async (req, res)=>{
+router.get("/skill", async(req, res)=>{
     try{
         const skillData = await Skill.find();
         res.send(skillData);
@@ -60,23 +60,23 @@ router.get("/skill/:id", async(req, res)=>{
 // });
 
 // delete data
-router.delete("/skill/:id", async(req,res)=>{
-    try{
-        const _id=req.params.id;
-        console.log(_id);
-        const d_data = await Skill.findByIdAndDelete(_id);
-        console.log(d_data);
-        if(!d_data){
-            return res.status(404).send();
-        }else{
-            res.send(d_data);
-        }
-    }catch(err){
-        console.log(err);
-        res.status(500).send(err);
+// router.delete("/skill/:id", async(req,res)=>{
+//     try{
+//         const _id=req.params.id;
+//         console.log(_id);
+//         const d_data = await Skill.findByIdAndDelete(_id);
+//         console.log(d_data);
+//         if(!d_data){
+//             return res.status(404).send();
+//         }else{
+//             res.send(d_data);
+//         }
+//     }catch(err){
+//         console.log(err);
+//         res.status(500).send(err);
         
-    }
-});
+//     }
+// });
 
 // update by id 
 // router.patch("/skill/:id",async(res, req)=>{
