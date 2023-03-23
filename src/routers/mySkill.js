@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const Skill = require("../models/skill")
+const Skill = require("../models/skill");
 
 router.get("/", (req, res)=>{
     res.send("hii welcome where to see my skill");
@@ -44,20 +44,20 @@ router.get("/skill/:id", async(req, res)=>{
 
 // get indivisal data by title
 
-router.get("/skill/:title", async(req, res)=>{
-    try{
-        const title = req.params.title;
-        const u_title = await Skill.findOne(title);
-        if(!u_title){
-            return res.status(404).send();
-        }else{
-            res.send(u_title);
-        }
-    }catch(err){
-        console.log(err);
-        res.status(500).send(err);
-    }
-});
+// router.get("/skill/:title", async(req, res)=>{
+//     try{
+//         const title = req.params.title;
+//         const u_title = await Skill.findOne(title);
+//         if(!u_title){
+//             return res.status(404).send();
+//         }else{
+//             res.send(u_title);
+//         }
+//     }catch(err){
+//         console.log(err);
+//         res.status(500).send(err);
+//     }
+// });
 
 // delete data
 router.delete("/skill/:id", async(req,res)=>{
@@ -79,14 +79,14 @@ router.delete("/skill/:id", async(req,res)=>{
 });
 
 // update by id 
-router.patch("/skill/:id",async(res, req)=>{
- try{
-    const _id=req.params.id;
-    const u_data = await Skill.findByIdAndUpdate( _id, req.body);
-    res.send(u_data);
- }catch(err){
-    // res.send(err);
- }
-});
+// router.patch("/skill/:id",async(res, req)=>{
+//  try{
+//     const _id=req.params.id;
+//     const u_data = await Skill.findByIdAndUpdate( _id, req.body);
+//     res.send(u_data);
+//  }catch(err){
+//     // res.send(err);
+//  }
+// });
 
    module.exports =router;
