@@ -1,6 +1,6 @@
 const express = require("express");
 const mongo = require("mongoose");
-mongo.connect("mongodb://127.0.0.1:27017/MyTechSkill",{   
+mongo.connect("mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/?retryWrites=true&w=majority",{   
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{
