@@ -9,11 +9,10 @@ app.use(express.json());
 
 // database mongodb
 const mongo = require("mongoose");
-// const url ='mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/?retryWrites=true&w=majority';
+// const url ='mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/MyTechSkill?retryWrites=true&w=majority';
 // const url = 'mongodb://127.0.0.1:27017/MyTechSkill'
-mongo.connect('mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/MyTechSkill?retryWrites=true&w=majority', {
-    useNewUrlParser:true,
-    useUnifiedTopology:true
+mongo.connect('mongodb://127.0.0.1:27017/MyTechSkill', {
+    useNewUrlParser:true
 }).then(()=>{
     console.log("connection is done");
 }).catch((err)=>{
@@ -36,7 +35,7 @@ app.get("/", (req, res) =>{
 // get my skill
 app.get("/skill", async(req, res)=>{
     try{
-        const getsdata = await Skill.find();
+        const getsdata = await Skill.find({});
         res.send(getsdata);
     }catch(err){
         res.send(err);
