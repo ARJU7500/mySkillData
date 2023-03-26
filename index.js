@@ -35,8 +35,8 @@ app.get("/", (req, res) =>{
 // get my skill
 app.get("/skill", async(req, res)=>{
     try{
-        const getsdata = await Skill.find({});
-        res.send(getsdata);
+        const getsdata = await Skill.find();
+        res.status(200).json(getsdata);  //change .send- .json
     }catch(err){
         res.send(err);
     }
