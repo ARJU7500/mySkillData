@@ -11,7 +11,7 @@ app.use(express.json());
 const mongo = require("mongoose");
 // const url ='mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/MyTechSkill?retryWrites=true&w=majority';
 // const url = 'mongodb://127.0.0.1:27017/MyTechSkill'
-mongo.connect('mongodb://127.0.0.1:27017/MyTechSkill', {
+mongo.connect('mongodb+srv://Myskilldata:myskilldata7500@arjun.vdw9nvk.mongodb.net/MyTechSkill?retryWrites=true&w=majority', {
     useNewUrlParser:true
 }).then(()=>{
     console.log("connection is done");
